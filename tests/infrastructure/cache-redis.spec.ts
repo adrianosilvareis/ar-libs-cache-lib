@@ -1,16 +1,11 @@
 import { Cache } from '../../src';
+import { cacheMockClient } from '../setup-after';
 
 describe('Cache', () => {
-  beforeAll(() => {
-    Cache.config({
-      host: 'localhost',
-      port: 6379,
-    });
-  });
+  const cache = new Cache();
 
-  it('should do something', async () => {
-    const cache = new Cache();
-    await cache.set('key', 'value');
+  it('should be able to return a value cached', async () => {
+    cacheMockClient.get.mockResolvedValueOnce('value');
     const value = await cache.get('key');
     expect(value).toBe('value');
   });

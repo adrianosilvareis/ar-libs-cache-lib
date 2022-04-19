@@ -1,27 +1,10 @@
-import { createClient, RedisClientType } from 'redis';
-
+import { cacheClient, CacheClientType } from '../../config/cache-client';
 import { Cache } from '../domain/cache';
 
-type CacheEnv = {
-  host: string;
-  port: number;
-}
-
-export class CacheRedis extends Cache<RedisClientType> {
-  private static environments: CacheEnv;
-
-  public static config(env: CacheEnv) {
-    this.environments = env;
-  }
-
+export class CacheRedis extends Cache<CacheClientType> {
   constructor() {
     super();
-    if (!CacheRedis.environments) {
-      throw new Error('Cache.config() must be called before creating a Cache instance');
-    }
-    this.client = createClient({
-      url: `redis://${CacheRedis.environments.host}:${CacheRedis.environments.port}`,
-    });
+    this.client = cacheClient;
   }
 
   public async set(key: string, value: string): Promise<void> {

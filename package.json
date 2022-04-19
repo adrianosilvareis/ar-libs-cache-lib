@@ -6,14 +6,21 @@
   "scripts": {
     "test": "jest --config ./jest.config.js",
     "build": "tsc --project ./tsconfig.json",
-    "lint": "eslint --ext .js,.ts src tests"
+    "lint": "eslint --ext .js,.ts src tests --fix"
   },
   "dependencies": {
     "@libs/eslint-config-base": "1.0.0",
     "@libs/jest-config-lib": "1.0.0",
     "@libs/tsconfig-lib": "1.0.0",
     "inversify": "^6.0.1",
-    "reflect-metadata": "^0.1.13",
-    "redis": "^4.0.6"
+    "redis": "^4.0.6",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/redis-mock": "^0.17.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.5.1",
+    "redis-mock": "^0.56.3",
+    "regenerator-runtime": "^0.13.9"
   }
 }
