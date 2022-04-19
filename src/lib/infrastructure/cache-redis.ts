@@ -1,6 +1,9 @@
+import { injectable } from 'inversify';
+
 import { cacheClient, CacheClientType } from '../../config/cache-client';
 import { Cache } from '../domain/cache';
 
+@injectable()
 export class CacheRedis extends Cache<CacheClientType> {
   constructor() {
     super();

@@ -15,12 +15,5 @@
     "inversify": "^6.0.1",
     "redis": "^4.0.6",
     "reflect-metadata": "^0.1.13"
-  },
-  "devDependencies": {
-    "@types/redis-mock": "^0.17.1",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^27.5.1",
-    "redis-mock": "^0.56.3",
-    "regenerator-runtime": "^0.13.9"
   }
 }
